@@ -1,0 +1,18 @@
+package com.projerestapi.projerestapi.model;
+
+import java.sql.Date;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class Country {
+	
+    private Date Date;
+	private String id;
+	private String name;
+	
+}

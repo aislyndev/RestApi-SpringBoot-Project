@@ -1,0 +1,9 @@
+package com.projerestapi.projerestapi.repository;
+
+import org.springframework.data.mongodb.repository.MongoRepository;
+
+import com.projerestapi.projerestapi.model.Country;
+
+public interface CountryRepository extends MongoRepository<Country,String>{
+
+}

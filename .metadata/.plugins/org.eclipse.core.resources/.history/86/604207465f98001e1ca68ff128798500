@@ -1,0 +1,8 @@
+package com.projerestapi.projerestapi.exception;
+
+@SuppressWarnings("serial")
+public class CountryAlreadyExistsException extends Throwable{
+	public CountryAlreadyExistsException(String msg) {
+		super(msg);
+	}
+}

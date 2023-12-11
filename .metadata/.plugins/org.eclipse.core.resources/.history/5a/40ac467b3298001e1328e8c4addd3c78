@@ -1,0 +1,29 @@
+package com.projerestapi.projerestapi.services;
+
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+import com.projerestapi.projerestapi.model.Country;
+import com.projerestapi.projerestapi.repository.CountryRepository;
+
+import lombok.AllArgsConstructor;
+
+
+@Service
+@AllArgsConstructor
+public class CountryService {
+	
+	private final CountryRepository countryRepository;
+
+	public List<Country> getCountries() {
+		return countryRepository.findAll();
+		
+	}
+
+	public Country createCountry(Country newCountry) {
+		// TODO Auto-generated method stub
+		return countryRepository.save(newCountry);
+	}
+
+}

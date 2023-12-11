@@ -1,0 +1,83 @@
+package com.projerestapi.projerestapi.controller;
+
+
+//import java.util.Date;
+import java.util.ArrayList;
+
+import java.util.List;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import org.springframework.web.bind.annotation.RestController;
+
+import com.projerestapi.projerestapi.model.Country;
+import com.projerestapi.projerestapi.services.CountryService;
+
+import lombok.AllArgsConstructor;
+
+
+
+
+
+@RestController
+@RequestMapping("/countries")
+@AllArgsConstructor
+public class CountryController {
+	
+ private final CountryService countryService;
+	
+
+	
+	
+	
+	@GetMapping
+	public ResponseEntity<List<Country>>getCountries(){
+		return new ResponseEntity<>(countryService.getCountries(), HttpStatus.OK);
+	}
+	
+	@GetMapping("/{id}")
+	public ResponseEntity<Country> getCountry(@PathVariable String id){
+		Country result = getCountryById(id);
+		return new ResponseEntity<>(result,HttpStatus.OK);
+	
+}
+	@PostMapping
+	public  ResponseEntity<Country> createCountry(@RequestBody Country newCountry)
+	{
+		
+		countries.add(newCountry);
+		return new ResponseEntity<>(newCountry,HttpStatus.CREATED);
+	}
+	@PutMapping("/{id}")
+    public ResponseEntity<Void> getCountry(@PathVariable String id,@RequestBody Country newCountry)
+    {
+		Country  oldCountry=getCountryById(id);
+		oldCountry.setName(newCountry.getName());
+		
+		return new ResponseEntity<>(HttpStatus.OK);
+		
+	}
+	
+	@DeleteMapping("/{id}")
+	public ResponseEntity<Void> deleteCountry(@PathVariable String id){
+		Country country = getCountryById(id);
+		countries.remove(country);
+		
+		return new ResponseEntity<>(HttpStatus.OK);
+	}
+	private Country getCountryById(String id) {
+		return countries.stream()
+				.filter(Country -> Country.getId().equals(id))
+				.findFirst()
+				.orElseThrow(() -> new RuntimeException("Country not found"));
+	}
+	
+}

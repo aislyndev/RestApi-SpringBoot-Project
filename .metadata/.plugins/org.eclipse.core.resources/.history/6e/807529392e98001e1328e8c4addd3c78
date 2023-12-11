@@ -1,0 +1,5 @@
+package com.projerestapi.projerestapi.repository;
+
+public interface CountryRepository {
+
+}

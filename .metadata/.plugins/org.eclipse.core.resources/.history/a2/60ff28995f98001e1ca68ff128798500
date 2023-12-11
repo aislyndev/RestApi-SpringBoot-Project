@@ -1,0 +1,5 @@
+package com.projerestapi.projerestapi.exception;
+
+public class CountryAlreadyExistsException {
+
+}

@@ -1,0 +1,21 @@
+package com.projerestapi.projerestapi.services;
+
+import org.springframework.stereotype.Service;
+
+import com.projerestapi.projerestapi.repository.CountryRepository;
+
+import lombok.AllArgsConstructor;
+
+
+@Service
+@AllArgsConstructor
+public class CountryService {
+	
+	private CountryRepository countryrepository;
+
+	public List<Country> getCountries() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}
