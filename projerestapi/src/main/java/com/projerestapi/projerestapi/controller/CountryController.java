@@ -59,8 +59,8 @@ private final CountryService countryService;
 		
 	}
 	@PutMapping("/{id}")
-    public ResponseEntity<Void> getCountry(@PathVariable String id,@RequestBody Country newCountry)
-    {
+        public ResponseEntity<Void> getCountry(@PathVariable String id,@RequestBody Country newCountry)
+       {
 		countryService.updateCountry(id, newCountry);
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
